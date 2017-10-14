@@ -20,7 +20,7 @@ public class Test {
 //		
 //		Person person = new Person(0,"111","Ů",33,"3333");
 //		dao.save(person);
-		
+		System.out.println(1);
 		IPersonDao dao = (IPersonDao)MybatisUtil.getMapper(IPersonDao.class);
 		Person person = new Person(0,"111","Ů",33,"3333");
 		dao.save(person);
