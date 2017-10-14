@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dzkj.dao.IUserDao">
+	
+	<insert id="save" parameterType="com.dzkj.entity.User">
+		insert into t_user values(seq_user.nextval,#{uname},#{upwd})
+	</insert>
+	
+	<resultMap type="com.dzkj.entity.User" id="mapper">
+		<result column="u_id" property="uid"/>
+		<result column="u_name" property="uname"/>
+		<result column="u_pwd" property="upwd"/>
+	</resultMap>
+	<select id="queryAll" resultMap="mapper">
+		select * from t_user
+	</select>
+	
+	<!-- 登录 -->
+	<select id="login" parameterType="java.util.Map" resultMap="mapper">
+		select * from t_user where u_name=#{uname} and u_pwd=#{upwd}
+	</select>
+</mapper>
